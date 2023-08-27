@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>511</x>
+      <y>532</y>
+      <w>147</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+cs2800::Type
+{This enum represents the 
+type stored as entries.}
+--
+-NUMBER
+-SYMBOL
+-STRING
+-INVALID
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>154</x>
+      <y>525</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+cs2800::Symbol
+{This enum represents the 
+symbols stored as entries.}
+--
+-LEFT BRACKET
+-RIGHT BRACKET
+-TIMES
+-DIVIDE
+-PLUS
+-MINUS
+-INVALID
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>308</x>
+      <y>483</y>
+      <w>196</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>cs2800::Entry
+{This class represents 
+the values stored in stack.}
+--
+-number: float
+-other: Symbol
+-str: String
+-type: Type
+--
+Responsibilities
+&lt;&lt;constructor&gt;&gt; +Entry(float value)
+&lt;&lt;constructor&gt;&gt; +Entry(Symbol other)
++getType(): Type
++getString(): String {Exception=BadType}
++getSymbol(): Symbol{Exception=BadType}
++getValue(): float{Exception=BadType}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>497</x>
+      <y>490</y>
+      <w>105</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>217</x>
+      <y>490</y>
+      <w>105</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>287</x>
+      <y>273</y>
+      <w>196</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>cs2800::Stack
+{This class represents a 
+stack value of entry values.}
+--
+-size: integer
+-entries: Entry[] entries
+--
+Responsibilities
++size(): integer
+The number of items in stack
++push(i:Entry)
+adds a new entry to stack and increases 
+the size of the stack
++pop(): Entry {Exception=EmptyStack}
+returns and removes the newest element
++top(): Entry {Exception=EmptyStack}
+Returns and keeps newest element</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>63</x>
+      <y>175</y>
+      <w>210</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>cs2800::NumStack
+{This class represents a 
+stack value of entry values.}
+--
+-numStack: Stack
+--
+Responsibilities
++push(i:float)
+adds a new entry to the stack
++pop(): float {Exception=EmptyStack,BadType}
+returns and removes the newest element
++isEmpty(): boolean {Exception=EmptyStack}
+Determines whether the stack is empty.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>308</x>
+      <y>175</y>
+      <w>147</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+cs2800::Calculator
+{This allows the calculation 
+of string expressions}
+--
++evaluiate(String:what):float
+	{exception=InvalidExpression}
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>182</y>
+      <w>203</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>cs2800::OpStack
+{This class represents the OpStack}
+--
+-numStack: Stack
+--
+Responsibilities
++push(i:Symbol)
+adds a new entry to the stack
++pop(): Symbol 
+{Exception=EmptyStack,BadType}
+returns and removes the newest element
++isEmpty(): boolean {Exception=EmptyStack}
+Determines whether the stack is empty.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>700</x>
+      <y>182</y>
+      <w>203</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>cs2800::StrStack
+{This class represents the StrStack}
+--
+-strStack: Stack
+--
+Responsibilities
++push(str:String)
+adds a new entry to the stack
++pop(): Srting 
+{Exception=EmptyStack,BadType}
+returns and removes the newest element
++isEmpty(): boolean {Exception=EmptyStack}
+Determines whether the stack is empty.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>371</x>
+      <y>455</y>
+      <w>28</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;20.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>196</x>
+      <y>308</y>
+      <w>105</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>476</x>
+      <y>315</y>
+      <w>98</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>476</x>
+      <y>315</y>
+      <w>259</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>350.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>189</x>
+      <y>42</y>
+      <w>210</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>cs2800::RevPolishClac
+{Evaluates reverse 
+polish string expressions}
+--
+-numStack: NumStack
+--
+Responsibilities
++evaluiate(String:what):float
+	{exception=InvalidExpression}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>427</x>
+      <y>42</y>
+      <w>210</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>cs2800::StandardCalc
+{Evaluates infix String expressions}
+--
+-values: OpStack
+-rpCalc: RevPolishCalc
+--
+Responsibilities
++evaluiate(String:what):float
+	{exception=InvalidExpression}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>336</x>
+      <y>140</y>
+      <w>35</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>30.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>399</x>
+      <y>140</y>
+      <w>70</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;50.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>196</x>
+      <y>140</y>
+      <w>77</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>539</x>
+      <y>140</y>
+      <w>49</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>112</y>
+      <w>175</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;230.0;100.0</additional_attributes>
+  </element>
+</diagram>
