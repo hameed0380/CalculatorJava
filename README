@@ -1,4 +1,4 @@
---Calculator Program--
+#Calculator Program
 Graphical Calculator
 
 --Description
@@ -12,8 +12,4 @@ Eclipse
 --Requirements
 No special requirements
 
---Status
-Program not fully complete
 
---Credits
-https://svn.cs.rhul.ac.uk/personal/zhac325/
